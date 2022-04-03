@@ -7,12 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SquareCounterTest {
     @ParameterizedTest
-    @CsvSource(value = {"'under limit', 10, 100",
-    "'in limit', 20, 400",
-    "'over limit', 40, 1600"})
-    void shouldCalculate(String[] i, int expected) {
+    @CsvSource(value = {" 231, 9558, 82",
+            " 500, 1500, 16",
+            " 1000, 9000, 63"})
+    void shouldCalculate(int downLimit, int upLimit, int expected) {
         SquareCounter service = new SquareCounter();
-        int actual = SquareCounter.calculate(i);
+        int actual = SquareCounter.calculate(downLimit, upLimit);
         assertEquals(expected, actual);
     }
 }
